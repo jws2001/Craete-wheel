@@ -2,6 +2,9 @@ import config from './config.js'
 //游戏是否结束
 let gameOver = false;
 
+//当前棋子颜色
+let color = 'black'; //white
+
 //创建的棋子
 const chessList = [];
 
@@ -49,15 +52,37 @@ const victory = chessList => {
     return false
 }
 
+//悔棋按钮
+const regretBtn = document.querySelector('.regret')
+
+//是否已经悔棋
+let regretState = false;
+
+const setRegretBtnDisabledState = state => {
+    regretState = state;
+    state ? regretBtn.setAttribute('disabled', state) : regretBtn.removeAttribute('disabled')
+}
+
+//悔棋
+const regretChess = () => {
+    regretBtn.addEventListener('click', () => {
+        if (regretState || !chessList.length) return;
+        chessList[chessList.length - 1].chess.remove();
+        chessList.splice(chessList.length - 1, 1);
+        color = color === 'black' ? "white" : 'black';
+        setRegretBtnDisabledState(true)
+    })
+}
+regretChess();
+
 /**
  * 落子处理
  * @param {Element} container 
  */
 const downChessPieces = container => {
-    let color = 'black'; //white
     const { width, height } = container.getBoundingClientRect();
     const chessWdith = width / config.row;
-    const chessHeight = width / config.col;
+    const chessHeight = height / config.col;
     container.addEventListener('click', ({ target, offsetX, offsetY }) => {
         if (!target.className.includes('chess-pieces') || gameOver) return;
         //目前点击棋盘的坐标
@@ -97,6 +122,7 @@ const downChessPieces = container => {
             ...chessInfo,
             chess
         })
+        setRegretBtnDisabledState(false);
         if (victory(chessList)) {
             gameOver = true;
             chessList.forEach((item, index) => {

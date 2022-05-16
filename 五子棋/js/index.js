@@ -2,7 +2,7 @@ import creatChessboard from './createChessboard.js'
 import downChessPieces from './downChessPieces.js'
 import restart from './restart.js'
 const init = () => {
-    const container = document.querySelector('.chessboard')
+    const container = document.querySelector('.chessboard');
     // 创建棋盘
     creatChessboard(container)
 
@@ -11,6 +11,7 @@ const init = () => {
 
     //重新开始
     restart()
+
 }
 
 init();
