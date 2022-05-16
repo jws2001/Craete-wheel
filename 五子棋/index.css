@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7e6b7;
+  width: 750px;
+  height: 750px;
+  padding: 20px;
+  margin: 0 auto;
+  border: 1px solid #cfbcbc;
+}
+.chessboard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  cursor: pointer;
+}
+.chessboard .chess {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chessboard .black {
+  background-color: #000;
+  background: radial-gradient(10px 10px at 15px 15px, #fff, #333);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+.chessboard .white {
+  background-color: #fff;
+  background: radial-gradient(15px 15px at 15px 15px, #fff, #e2e2e2);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: #000;
+}
+.chessboard .chess-pieces {
+  box-sizing: border-box;
+  border: 2px solid #000;
+}
+.chessboard .chess-pieces:not(:nth-child(15n)) {
+  border-right-width: 1px;
+}
+.chessboard .chess-pieces:not(:nth-child(15n + 1)) {
+  border-left-width: 1px;
+}
+.chessboard .chess-pieces:nth-child(n + 16) {
+  border-top-width: 1px;
+}
+.chessboard .chess-pieces:not(:nth-child(n + 211)) {
+  border-bottom-width: 1px;
+}
+.btn {
+  margin-top: 20px;
+  text-align: center;
+}
