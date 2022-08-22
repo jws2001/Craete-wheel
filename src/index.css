@@ -1,0 +1,51 @@
+.demo{
+    width: 500px;
+    margin: 200px auto;
+    position: relative;
+}
+
+input{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    height: 38px;
+    border-radius: 5px;
+    padding-left: 5px;
+    box-sizing: border-box;
+}
+
+label{
+    position: absolute;
+    height: 100%;
+    line-height: 38px;
+    left: 5px;
+    transition: all .3s;
+    pointer-events: none;
+}
+
+span{
+    position: absolute;
+    height: 3px;
+    background-color: #999;
+    width: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    transition: all .3s;
+}
+
+input:focus ~label{
+    font-size: 12px;
+    transform: translateY(-100%);
+}
+
+input:focus ~span{
+    width: 100%;
+}
+
+input:valid ~label{
+    transform: translateY(-100%);
+}
