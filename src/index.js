@@ -39,7 +39,7 @@ const draw = () => {
     ctx.font = `${FONTSIZE}px  "Roboto Mono"`;
 
     for (let i = 0, len = colNextIndexs.length; i < len; i++) {
-        const x = i * COLWIDTH;
+        const x = i * COLWIDTH + COLWIDTH / 2;
         const y = colNextIndexs[i] * COLWIDTH;
         ctx.fillText(getNumber(), x, y);
         if (y > HEIGHT && Math.random() > 0.99) {
