@@ -6,6 +6,8 @@
     let offsetX = 0, offsetY = 0;
     let down = false;
     ctx.lineWidth = 10;
+    ctx.fillStyle = `#fff`;
+    ctx.fillRect(0,0,signature.width, signature.height)
     signature.addEventListener('mousedown', e => {
         down = true;
         const { clientX, clientY } = e;
