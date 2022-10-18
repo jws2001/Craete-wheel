@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 100px;
+    box-sizing: border-box;
+}
+
+#map{
+    display: block;
+    margin: 0 auto;
+}
+
+#ball{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: #f40;
+}
