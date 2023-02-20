@@ -1,0 +1,18 @@
+:root {
+    background-color: #000;
+}
+
+body {
+    margin: 0;
+}
+
+#canvas {
+    display: block;
+    border-bottom: 1px solid #fff;
+}
+
+audio {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
