@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "highlight.js": "^11.7.0",
+    "pinia": "^2.0.32",
     "sass": "^1.58.3",
     "vue": "^3.2.45"
   },

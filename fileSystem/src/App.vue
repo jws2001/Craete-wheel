@@ -1,11 +1,22 @@
 
 
 <template>
-    <Layout />
+    <Layout>
+        <template v-slot:menu>
+            <Menu />
+        </template>
+        <template v-slot:aside>
+            <Sidebar />
+        </template>
+        <Content />
+    </Layout>
 </template>
 
 <script setup lang="ts">
-import Layout from './components/layout/index.vue';
+import Layout from '@/components/layout/index.vue';
+import Menu from '@/components/menu/index.vue';
+import Sidebar from '@/components/sidebar/index.vue';
+import Content from '@/components/content/index.vue'
 // 处理目录
 async function processHandle(handle: any) {
     if (handle.kind === 'file') {
