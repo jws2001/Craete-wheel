@@ -1,0 +1,29 @@
+.demo{
+    border: 1px solid red;
+    width: 400px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.select-box{
+    top: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 0fr;
+    border: 1px solid royalblue;
+    overflow: hidden;
+    transition: all 1s;
+}
+
+.demo:hover .select-box{
+    grid-template-rows: 1fr;
+}
+
+.text{
+    min-height: 0;
+    margin: 0;
+}
