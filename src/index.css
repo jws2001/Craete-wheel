@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+}
+.demo{
+    display: flex;
+    width: 100%;
+    height: 280px;
+    overflow-x: scroll;
+    /* border: 1px solid rebeccapurple; */
+    margin: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.demo::-webkit-scrollbar{
+    width: 0;
+}
+
+.demo .item{
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 3em;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.demo .item:nth-child(1){
+    background-color: rebeccapurple;
+}
+.demo .item:nth-child(2){
+    background-color: aqua;
+}
+.demo .item:nth-child(3){
+    background-color: rosybrown;
+}
