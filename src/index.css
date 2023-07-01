@@ -1,0 +1,14 @@
+.demo{
+    display: flex;
+    flex-direction: column;
+}
+
+.t3{
+    order: 1;
+}
+.t2{
+    order: 2;
+}
+.t1{
+    order: 3;
+}
