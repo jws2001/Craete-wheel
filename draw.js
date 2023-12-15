@@ -333,9 +333,24 @@ export default class Draw {
         const resetSelectInfo = { ...selectInfo };
         if (!selectInfo) return;
         const move = (e) => {
-            const { x, y } = getMousePosition(this.canvasDom, e);
-            const spaceX = x - downX;
-            const spaceY = y - downY;
+            const { x, y, width, height } = getMousePosition(this.canvasDom, e);
+            // 鼠标超出了canvas范围
+            let mouseX = x;
+            let mouseY = y;
+            if (mouseX < 0) {
+                mouseX = 0;
+            }
+            if (mouseX > width) {
+                mouseX = width
+            }
+            if (mouseY < 0) {
+                mouseY = 0;
+            }
+            if (mouseY > height) {
+                mouseY = height;
+            }
+            const spaceX = mouseX - downX;
+            const spaceY = mouseY - downY;
             let newStartX = resetSelectInfo.startX;
             let newStartY = resetSelectInfo.startY;
             let newEndX = resetSelectInfo.endX;
@@ -498,8 +513,10 @@ export default class Draw {
         const move = (e) => {
             // 计算移动时的坐标
             const { x, y, width, height } = getMousePosition(this.canvasDom, e);
-            const mouseX = x;
-            const mouseY = y;
+            let mouseX = x;
+            let mouseY = y;
+
+            console.log(x)
 
             // 鼠标移动的距离的绝对值
             moveSapce = hypotenuse(Math.abs(mouseX - downX), Math.abs(mouseY - downY));
