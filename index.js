@@ -1,7 +1,7 @@
 import Draw from "./draw.js";
 
 const drawDom = document.querySelector('.draw');
-const draw = new Draw(drawDom, './手机壁纸-bizihu.com.JPG');
+const draw = new Draw(drawDom, 'https://img-mall-test.sjgo365.com/cbest-mall-center/images/20230712/SbA6XxUVeIiJ5yR2jawHPo3xE9Hk1iz35ZxOaxbe.png');
 
 
 const fun = () => {

@@ -141,6 +141,7 @@ export default class Draw {
 
     drawImg() {
         const img = new Image();
+        img.setAttribute('crossOrigin', 'anonymous');
         img.addEventListener('load', () => {
             const { width, height } = img;
             this.canvasDom.width = width;
