@@ -490,7 +490,7 @@ export default class Draw {
             moveSapce = 0;
             this.isMouseDown = true
             if (this.maxLength !== 0 && this.mapList.length >= this.maxLength) {
-                this.runEventListener();
+                this.runEventListener('limit');
                 return
             }
             // 按下的鼠标是否在区域内
