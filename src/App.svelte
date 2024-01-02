@@ -34,22 +34,19 @@
   const mesh = new THREE.Mesh(geometry, material); // 模型
   scene.add(mesh);
 
-  // // 设置模型位置
-  // // @ts-ignore
-  // mesh.position.set(100, 0, 0);
-  // scene.add(mesh); // 将模型添加到场景中
-
-  // for (let i = 0; i < 10; i++) {
-  //   for (let j = 0; j < 10; j++) {
-  //     const mesh = new THREE.Mesh(geometry, material);
-  //     mesh.position.set(i * 200, 0, j * 200);
-  //     scene.add(mesh);
-  //   }
-  // }
-
-  gui.add(mesh.position, "x", 0, 180);
+  gui.add(mesh.position, "x", {
+    left: -100,
+    center: 0,
+    right: 100,
+  });
   gui.add(mesh.position, "y", 0, 180);
   gui.add(mesh.position, "z", 0, 180);
+  const obj = {
+    color: 0x00ffff,
+  };
+  gui.addColor(obj, "color").onChange((val) => {
+    mesh.material.color.set(val);
+  });
 
   // 辅助观察坐标系
   const axesHelper = new THREE.AxesHelper(250);
@@ -89,7 +86,7 @@
   );
   scene.add(pointLightHelper);
 
-  gui.add(directionalLight, "intensity", 0, 2.0);
+  gui.add(directionalLight, "intensity", 0, 2.0).name("平行光强度").step(0.1);
 
   // 创建渲染对象
   const renderer = new THREE.WebGLRenderer({
