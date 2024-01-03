@@ -1,15 +1,31 @@
-.wrapper{
+.wrapper {
     width: 500px;
     margin: 200px auto;
     padding: 10px;
     border: 1px solid black;
 }
 
-.wrapper .item{
+.wrapper .item {
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid rebeccapurple;
     margin-bottom: 20px;
+}
+
+.item2 {
+    width: 30%;
+}
+
+.item3 {
+    width: 40%;
+}
+
+.item4 {
+    width: 50%;
+}
+
+.item5 {
+    width: 70%;
 }

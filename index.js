@@ -30,10 +30,13 @@ for (let i = 0; i < domLinkedList.length; i++) {
     }
 }
 
-console.log(domLinkedList, '=-=-=')
-
 const moveFocus = new MoveFocus({
     scollWrapper: wrapper,
     domLinkedList,
     curLinkObj: domLinkedList[0]
+})
+
+
+moveFocus.addEventListener('change', e => {
+    console.log(e,'====--==--==')
 })

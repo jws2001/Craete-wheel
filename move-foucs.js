@@ -5,6 +5,7 @@ export default class MoveFocus {
         curLinkObj: null
     }) {
         this.moveDom = null;
+        this.eventMap = new Map();
         this.options = options;
         this.init();
     }
@@ -42,13 +43,15 @@ export default class MoveFocus {
 
     ArrowUp() {
         this.changeMoveDom('prev');
-        this.options.curLinkObj = this.options.curLinkObj.prev
+        this.options.curLinkObj = this.options.curLinkObj.prev;
+        this.runEventListener('change', this.options.curLinkObj);
 
     }
 
     ArrowDown() {
         this.changeMoveDom('next');
-        this.options.curLinkObj = this.options.curLinkObj.next
+        this.options.curLinkObj = this.options.curLinkObj.next;
+        this.runEventListener('change', this.options.curLinkObj);
     }
 
     keyDown(e, _this) {
@@ -66,13 +69,28 @@ export default class MoveFocus {
 
     }
 
-
     EventKeyDown() {
         window.addEventListener('keydown', this.keyDown.bind(this))
     }
 
-
     unInit() {
         window.removeEventListener('keydown', this.keyDown)
+    }
+
+    addEventListener(key, hanldeFun) {
+        const { eventMap } = this;
+        const keyData = eventMap.get(key);
+        if (keyData) {
+            eventMap.set(key, [...keyData, hanldeFun])
+        } else {
+            eventMap.set(key, [hanldeFun])
+        }
+    }
+
+    runEventListener(key, data) {
+        const { eventMap } = this;
+        const keyData = eventMap.get(key);
+        if (!keyData) return;
+        keyData.forEach(item => item(data))
     }
 }
