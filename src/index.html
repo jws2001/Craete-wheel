@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="./index.css">
     <script>
         window.addEventListener('error', e => {
-            if (e instanceof Event && e.target.nodeName) {
+            if (e instanceof Event && e.target.nodeName === 'SCRIPT') {
                 // 资源加载错误
                 console.log(e)
                 const path = location.origin + '/src/index2.js';
-                console.log(path)
                 document.write(`<script src=${path}> \<\/script>`)
+                console.log(path)
             }
         }, true)
     </script>
